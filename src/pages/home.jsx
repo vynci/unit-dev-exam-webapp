@@ -3,9 +3,11 @@ import Sales from "../components/sales";
 import moment from "moment";
 
 const getAPI = (resource, resourceId, date) => {
+  const baseUrl = "https://unitdevapi.herokuapp.com";
+
   let parsedDate = moment(date).format("LL"); // January 01, 2022
   parsedDate = parsedDate.replace(/\b(\d{1})\b/g, "0$1").replace(/-/g, "");
-  return `http://localhost:3001/sales/${resource}/${resourceId}?date=${parsedDate}`;
+  return `${baseUrl}/sales/${resource}/${resourceId}?date=${parsedDate}`;
 };
 
 function HomePage() {
